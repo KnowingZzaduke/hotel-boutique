@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "rooms": "Rooms",
+    "restaurant": "Restaurant",
+    "experiences": "Experiences",
+    "gallery": "Gallery",
+    "about": "Our Story",
+    "contact": "Contact",
+    "book": "Book Now",
+    "bookWhatsapp": "Book via WhatsApp",
+    "location": "Cartagena de Indias"
+  },
+  "hero": {
+    "pretitle": "Cartagena de Indias · Historic Center",
+    "title": "A colonial house.\nAn unforgettable experience.",
+    "subtitle": "12 unique rooms in an 18th-century colonial house steps from the walled city",
+    "badge": "★ 4.9 · Travelers' Choice 2025",
+    "scrollHint": "Discover more",
+    "search": {
+      "checkin": "Check-in",
+      "checkout": "Check-out",
+      "guests": "Guests",
+      "adults": "Adults",
+      "children": "Children",
+      "cta": "Check availability",
+      "nights": "{count, plural, one {# night} other {# nights}}",
+      "adultsLabel": "{count, plural, one {# adult} other {# adults}}",
+      "childrenLabel": "{count, plural, one {# child} other {# children}}"
+    }
+  },
+  "intro": {
+    "pretitle": "Welcome",
+    "title": "Experience Cartagena from within",
+    "p1": "In the heart of the San Diego neighborhood, inside the walled city, there is a house that has kept silence for more than two centuries. Its coral stone walls, carved wooden ceilings and central courtyard with centuries-old palms are a living testament to an era that time has not been able to erase.",
+    "p2": "The Aristizábal family acquired this manor in 1987 and spent more than a decade restoring it stone by stone, preserving every original detail: the Italian marble floors, the wooden windows with baroque facades and the colonial well that still decorates the center of the courtyard.",
+    "p3": "Today, Casa Boutique San Diego opens its doors to offer something the large hotels cannot: the intimacy of a family home with the discreet luxury of those who know the true art of hospitality.",
+    "stat1Label": "unique rooms",
+    "stat2Label": "year of construction",
+    "stat3Label": "to the city wall"
+  },
+  "rooms": {
+    "pretitle": "Accommodation",
+    "title": "Every room tells a story",
+    "cta": "View all rooms",
+    "fromPrice": "From",
+    "perNight": "/ night",
+    "viewDetails": "View details",
+    "patio": {
+      "name": "Patio Room",
+      "tagline": "Where the garden comes through the window",
+      "desc": "30 m² of colonial elegance with direct views of the inner courtyard. The garden breeze and whispering palms are your best alarm clock."
+    },
+    "balcon": {
+      "name": "Balcony Room",
+      "tagline": "The colonial street as a living painting",
+      "desc": "40 m² with a private balcony overlooking the cobblestone street. Every morning, Cartagena wakes up before you with its colors and Caribbean light."
+    },
+    "mirador": {
+      "name": "Mirador Suite",
+      "tagline": "The walled city at your feet",
+      "desc": "65 m² suite with private terrace and jacuzzi. The panoramic view of the city wall at sunset is priceless. Personal butler included."
+    }
+  },
+  "services": {
+    "pretitle": "Services",
+    "title": "Everything you need, nothing you don't",
+    "restaurant": { "title": "Signature restaurant", "desc": "Contemporary Caribbean cuisine featuring the finest local produce from Colombia's Caribbean coast" },
+    "pool": { "title": "Indoor pool", "desc": "Heated pool in the colonial courtyard, surrounded by tropical vegetation" },
+    "spa": { "title": "Spa & wellness", "desc": "Treatments with local ingredients: coconut oil, passion fruit flowers, Guajira clay" },
+    "terrace": { "title": "Rooftop bar", "desc": "Privileged views of the city walls and colonial rooftops. The best sunset in Cartagena" },
+    "concierge": { "title": "24/7 Concierge", "desc": "Your personal guide to discover the Cartagena that guidebooks don't show" },
+    "transfers": { "title": "Private transfers", "desc": "Luxury vehicles to and from Rafael Núñez Airport" },
+    "events": { "title": "Private events", "desc": "Weddings, anniversaries and exclusive celebrations in our unique spaces" },
+    "tours": { "title": "Curated tours", "desc": "Experiences designed by local experts to discover the authentic side of Cartagena" }
+  },
+  "footer": {
+    "tagline": "A colonial house. An unforgettable experience.",
+    "hotel": "The hotel",
+    "info": "Information",
+    "contact": "Contact",
+    "social": "Follow us",
+    "links": {
+      "rooms": "Rooms",
+      "restaurant": "Restaurant",
+      "experiences": "Experiences",
+      "gallery": "Gallery",
+      "cancellation": "Cancellation policy",
+      "terms": "Terms & conditions",
+      "privacy": "Privacy policy",
+      "children": "Children policy"
+    },
+    "address": "Calle de las Bóvedas #39-67",
+    "district": "San Diego District, Historic Center",
+    "city": "Cartagena de Indias, Colombia",
+    "reception": "24-hour reception",
+    "copyright": "© 2026 Casa Boutique San Diego. All rights reserved.",
+    "credit": "Website designed by",
+    "certifications": "Awards & Recognition"
+  },
+  "whatsapp": {
+    "tooltip": "Book via WhatsApp",
+    "message": "Hello, I would like to book at Casa Boutique San Diego."
+  },
+  "booking": {
+    "title": "Book your stay",
+    "steps": {
+      "dates": "Dates",
+      "room": "Room",
+      "extras": "Extras",
+      "guest": "Details",
+      "confirm": "Confirmation"
+    }
+  }
+}

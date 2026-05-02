@@ -1,27 +1,235 @@
+@import "tw-animate-css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+/* ─── Hotel CSS Variables (light mode) ─────────────────────────────────── */
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* shadcn semantic tokens — remapped to hotel palette */
+    --background: 38 47% 96%;          /* #FAF6F0 warm cream */
+    --foreground: 27 13% 15%;          /* #2A2620 warm near-black */
+    --card: 0 0% 100%;
+    --card-foreground: 27 13% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 27 13% 15%;
+    --primary: 30 31% 41%;             /* #8B6F47 terracotta gold */
+    --primary-foreground: 38 47% 96%;
+    --secondary: 35 40% 92%;           /* #F5EDE0 warm cream alt */
+    --secondary-foreground: 27 13% 15%;
+    --muted: 35 30% 92%;
+    --muted-foreground: 24 10% 40%;    /* #6B6259 taupe */
+    --accent: 38 44% 60%;              /* #C9A86B aged gold */
+    --accent-foreground: 27 13% 15%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 35 25% 88%;
+    --input: 35 25% 88%;
+    --ring: 30 31% 41%;
+    --radius: 0.5rem;
+
+    /* Hotel-specific design tokens */
+    --hotel-bg: #FAF6F0;
+    --hotel-surface: #FFFFFF;
+    --hotel-surface-alt: #F5EDE0;
+    --hotel-text: #2A2620;
+    --hotel-text-secondary: #6B6259;
+    --hotel-text-tertiary: #9A9088;
+    --hotel-primary: #8B6F47;
+    --hotel-gold: #C9A86B;
+    --hotel-gold-light: #DFC48A;
+    --hotel-deep: #4A3829;
+    --hotel-botanical: #6B7F5C;
+    --hotel-border: rgba(42, 38, 32, 0.12);
+    --hotel-border-strong: rgba(42, 38, 32, 0.22);
+
+    /* Navbar */
+    --navbar-height: 80px;
+  }
+
+  .dark {
+    /* shadcn tokens — dark mode hotel palette */
+    --background: 27 16% 9%;           /* #1A1612 warm near-black */
+    --foreground: 35 40% 92%;          /* #F5EDE0 warm cream */
+    --card: 27 14% 13%;                /* #252019 */
+    --card-foreground: 35 40% 92%;
+    --popover: 27 14% 13%;
+    --popover-foreground: 35 40% 92%;
+    --primary: 38 44% 65%;             /* #D4B47C warm gold */
+    --primary-foreground: 27 16% 9%;
+    --secondary: 27 19% 16%;           /* #2D261D */
+    --secondary-foreground: 35 40% 92%;
+    --muted: 27 19% 16%;
+    --muted-foreground: 35 20% 70%;    /* #C4B8A6 */
+    --accent: 38 44% 65%;
+    --accent-foreground: 27 16% 9%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: rgba(245, 237, 224, 0.1);
+    --input: rgba(245, 237, 224, 0.12);
+    --ring: 38 44% 65%;
+
+    /* Hotel-specific dark tokens */
+    --hotel-bg: #1A1612;
+    --hotel-surface: #252019;
+    --hotel-surface-alt: #2D261D;
+    --hotel-text: #F5EDE0;
+    --hotel-text-secondary: #C4B8A6;
+    --hotel-text-tertiary: #8A8070;
+    --hotel-gold: #D4B47C;
+    --hotel-gold-light: #E8CC9A;
+    --hotel-border: rgba(245, 237, 224, 0.1);
+    --hotel-border-strong: rgba(245, 237, 224, 0.2);
+  }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-hotel-bg text-hotel-text font-inter;
+    overflow-x: hidden;
+  }
+
+  /* Focus styles — elegant, not the default browser blue ring */
+  :focus-visible {
+    outline: 2px solid var(--hotel-gold);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Skip to content — accessibility */
+  .skip-to-content {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999];
+    @apply bg-hotel-primary text-white px-4 py-2 rounded font-inter text-sm font-medium;
+  }
+
+  /* Smooth scrollbar for webkit */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--hotel-surface-alt);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--hotel-primary);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--hotel-deep);
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* ─── Typography utilities ──────────────────────────────────────────────── */
+@layer components {
+  .text-pretitle {
+    @apply font-inter text-label uppercase tracking-[0.15em] text-hotel-text-secondary font-medium;
+  }
+
+  .text-h1 {
+    @apply font-cormorant font-light leading-tight tracking-tight;
+    font-size: clamp(2.75rem, 6vw, 5rem);
+  }
+
+  .text-h2 {
+    @apply font-playfair font-semibold leading-tight tracking-tight;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .text-h3 {
+    @apply font-playfair font-medium leading-snug;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+  }
+
+  .text-body-lg {
+    @apply font-inter text-body-lg leading-relaxed text-hotel-text-secondary;
+  }
+
+  .text-gold-accent {
+    color: var(--hotel-gold);
+  }
+
+  /* Section wrapper — consistent horizontal padding */
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 md:px-10 lg:px-16;
+  }
+
+  /* Gold divider line */
+  .gold-divider {
+    @apply w-12 h-px bg-hotel-gold;
+  }
+
+  /* Hover image zoom wrapper */
+  .img-zoom-wrapper {
+    @apply overflow-hidden;
+  }
+  .img-zoom-wrapper img {
+    @apply transition-transform duration-700 ease-out;
+  }
+  .img-zoom-wrapper:hover img {
+    @apply scale-105;
+  }
+
+  /* Button variants for hotel */
+  .btn-hotel-primary {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply bg-hotel-primary text-white font-inter font-medium text-sm tracking-wide;
+    @apply px-7 py-3.5 rounded-sm;
+    @apply transition-all duration-300;
+    @apply hover:bg-hotel-deep hover:shadow-hotel active:scale-[0.98];
+  }
+
+  .btn-hotel-outline {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply border border-hotel-gold text-hotel-primary font-inter font-medium text-sm tracking-wide;
+    @apply px-7 py-3.5 rounded-sm;
+    @apply transition-all duration-300;
+    @apply hover:bg-hotel-primary hover:text-white hover:border-hotel-primary active:scale-[0.98];
+  }
+
+  .btn-hotel-ghost {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply text-hotel-primary font-inter font-medium text-sm;
+    @apply px-2 py-1;
+    @apply transition-all duration-300;
+    @apply hover:text-hotel-deep hover:underline underline-offset-4;
+  }
 }
 
+/* ─── Animation utilities ───────────────────────────────────────────────── */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+  .animation-delay-600 { animation-delay: 600ms; }
+
+  /* Gradient overlays */
+  .hero-gradient {
+    background: linear-gradient(
+      to bottom,
+      rgba(26, 22, 18, 0.15) 0%,
+      rgba(26, 22, 18, 0.05) 40%,
+      rgba(26, 22, 18, 0.45) 75%,
+      rgba(26, 22, 18, 0.72) 100%
+    );
+  }
+
+  .section-gradient-top {
+    background: linear-gradient(to bottom, var(--hotel-bg) 0%, transparent 100%);
   }
 }

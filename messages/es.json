@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "rooms": "Habitaciones",
+    "restaurant": "Restaurante",
+    "experiences": "Experiencias",
+    "gallery": "Galería",
+    "about": "Nuestra Historia",
+    "contact": "Contacto",
+    "book": "Reservar",
+    "bookWhatsapp": "Reservar por WhatsApp",
+    "location": "Cartagena de Indias"
+  },
+  "hero": {
+    "pretitle": "Cartagena de Indias · Centro Histórico",
+    "title": "Una casa colonial.\nUna experiencia inolvidable.",
+    "subtitle": "12 habitaciones únicas en una casa del siglo XVIII a metros de la ciudad amurallada",
+    "badge": "★ 4.9 · Travelers' Choice 2025",
+    "scrollHint": "Descubre más",
+    "search": {
+      "checkin": "Llegada",
+      "checkout": "Salida",
+      "guests": "Huéspedes",
+      "adults": "Adultos",
+      "children": "Niños",
+      "cta": "Ver disponibilidad",
+      "nights": "{count, plural, one {# noche} other {# noches}}",
+      "adultsLabel": "{count, plural, one {# adulto} other {# adultos}}",
+      "childrenLabel": "{count, plural, one {# niño} other {# niños}}"
+    }
+  },
+  "intro": {
+    "pretitle": "Bienvenidos",
+    "title": "Vivir Cartagena desde adentro",
+    "p1": "En el corazón del barrio San Diego, dentro de la ciudad amurallada, existe una casa que ha guardado silencio durante más de dos siglos. Sus paredes de piedra coral, sus techos de madera tallada y su patio central con palmeras centenarias son el testimonio vivo de una época que el tiempo no ha podido borrar.",
+    "p2": "La familia Aristizábal adquirió esta casona en 1987 y pasó más de una década restaurándola piedra a piedra, conservando cada detalle original: los pisos de mármol italiano, las ventanas de madera con portadas barrocas y el pozo colonial que aún decora el centro del patio.",
+    "p3": "Hoy, Casa Boutique San Diego abre sus puertas para ofrecer algo que los grandes hoteles no pueden: la intimidad de una casa familiar con el lujo discreto de quien conoce el verdadero arte de recibir.",
+    "stat1Label": "habitaciones únicas",
+    "stat2Label": "año de construcción",
+    "stat3Label": "hasta la muralla"
+  },
+  "rooms": {
+    "pretitle": "Alojamiento",
+    "title": "Cada habitación cuenta una historia",
+    "cta": "Ver todas las habitaciones",
+    "fromPrice": "Desde",
+    "perNight": "/ noche",
+    "viewDetails": "Ver detalles",
+    "patio": {
+      "name": "Habitación Patio",
+      "tagline": "Donde el jardín entra por la ventana",
+      "desc": "30 m² de elegancia colonial con vista directa al patio interior. La brisa del patio y el susurro de las palmeras son tu mejor despertador."
+    },
+    "balcon": {
+      "name": "Habitación Balcón",
+      "tagline": "La calle colonial como cuadro vivo",
+      "desc": "40 m² con balcón privado sobre la calle empedrada. Cada mañana, Cartagena despierta frente a ti con sus colores y su luz caribeña."
+    },
+    "mirador": {
+      "name": "Suite Mirador",
+      "tagline": "La ciudad amurallada a tus pies",
+      "desc": "65 m² de suite con terraza privada y jacuzzi. La vista panorámica de la muralla al atardecer no tiene precio. Mayordomo personal incluido."
+    }
+  },
+  "services": {
+    "pretitle": "Servicios",
+    "title": "Todo lo que necesitas, nada que te sobre",
+    "restaurant": { "title": "Restaurante de autor", "desc": "Cocina caribeña contemporánea con los mejores productos del Caribe colombiano" },
+    "pool": { "title": "Piscina interior", "desc": "Piscina climatizada en el patio colonial, rodeada de vegetación tropical" },
+    "spa": { "title": "Spa & bienestar", "desc": "Tratamientos con ingredientes locales: aceite de coco, flores de maracuyá, arcilla de la Guajira" },
+    "terrace": { "title": "Terraza con bar", "desc": "Vista privilegiada a las murallas y los tejados coloniales. El mejor atardecer de Cartagena" },
+    "concierge": { "title": "Conserjería 24/7", "desc": "Tu guía personal para descubrir la Cartagena que los libros no muestran" },
+    "transfers": { "title": "Traslados privados", "desc": "Vehículos de lujo desde y hacia el aeropuerto Rafael Núñez" },
+    "events": { "title": "Eventos privados", "desc": "Bodas, aniversarios y celebraciones exclusivas en nuestros espacios únicos" },
+    "tours": { "title": "Tours curados", "desc": "Experiencias diseñadas por expertos locales para descubrir lo auténtico de Cartagena" }
+  },
+  "footer": {
+    "tagline": "Una casa colonial. Una experiencia inolvidable.",
+    "hotel": "El hotel",
+    "info": "Información",
+    "contact": "Contacto",
+    "social": "Síguenos",
+    "links": {
+      "rooms": "Habitaciones",
+      "restaurant": "Restaurante",
+      "experiences": "Experiencias",
+      "gallery": "Galería",
+      "cancellation": "Política de cancelación",
+      "terms": "Términos y condiciones",
+      "privacy": "Privacidad",
+      "children": "Política de niños"
+    },
+    "address": "Calle de las Bóvedas #39-67",
+    "district": "Barrio San Diego, Centro Histórico",
+    "city": "Cartagena de Indias, Colombia",
+    "reception": "Recepción 24 horas",
+    "copyright": "© 2026 Casa Boutique San Diego. Todos los derechos reservados.",
+    "credit": "Sitio diseñado por",
+    "certifications": "Reconocimientos"
+  },
+  "whatsapp": {
+    "tooltip": "Reservar por WhatsApp",
+    "message": "Hola, me gustaría reservar en Casa Boutique San Diego."
+  },
+  "booking": {
+    "title": "Motor de reservas",
+    "steps": {
+      "dates": "Fechas",
+      "room": "Habitación",
+      "extras": "Extras",
+      "guest": "Datos",
+      "confirm": "Confirmación"
+    }
+  }
+}
