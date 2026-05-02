@@ -151,7 +151,7 @@
   }
 
   .text-body-lg {
-    @apply font-inter text-body-lg leading-relaxed text-hotel-text-secondary;
+    @apply font-inter text-[1.0625rem] leading-[1.7] text-hotel-text-secondary;
   }
 
   .text-gold-accent {
