@@ -63,6 +63,65 @@ Sitio web profesional para hotel boutique ficticio en Cartagena, Colombia. Cumpl
 - [x] Footer premium: 4 columnas, certificaciones, créditos
 - [x] Build 100% exitoso, TypeScript strict, 0 errores
 
+### Sesión 3b — COMPLETADA ✓ (complemento de Sesión 3)
+
+**Completado:**
+- [x] `.env.local` — credenciales Resend (API key, from email, hotel email, site URL)
+- [x] `types/reservation.ts` — `BookingPayload` interface agregada (serializable para API)
+- [x] `lib/booking-email.ts` — templates HTML bilinguales: `buildGuestEmail()` + `buildHotelEmail()`
+- [x] `app/api/booking/confirm/route.ts` — POST endpoint con Resend: envía 2 emails (huésped + hotel), manejo de errores parciales con `Promise.allSettled`
+- [x] `lib/pdf-generator.ts` — `generateBookingPDF()` con jsPDF: header terracota, código CSD-2026-XXXX, detalles, extras, total, footer hotel (client-side, import dinámico)
+- [x] `step-confirmacion.tsx` — actualizado: email automático en mount (con `useRef` guard), indicador de estado email (sending/sent/error), botón "Descargar reserva PDF" con loading state, toast notifications via Sonner
+- [x] Paquetes instalados: `resend`, `jspdf`
+- [x] Build 100% exitoso, TypeScript strict, 0 errores
+
+**Flujo de email:**
+1. Huésped completa Step 4 (datos) y hace click "Confirmar reserva"
+2. Wizard avanza al Step 5 (confirmación)
+3. `useEffect` en `StepConfirmacion` llama a `/api/booking/confirm` (una sola vez)
+4. API envía con `Promise.allSettled`: email al huésped + notificación al hotel
+5. UI muestra estado (sending/sent/error) con icono y texto
+
+**Para activar los emails:**
+1. Crear cuenta en https://resend.com
+2. Reemplazar `RESEND_API_KEY` en `.env.local`
+3. Verificar dominio en Resend para usar `reservas@casaboutiquesandiego.com`
+4. Cambiar `RESEND_FROM_EMAIL` en `.env.local`
+
+### Sesión 3 — COMPLETADA ✓
+
+**Completado:**
+- [x] `components/reservas/booking-summary.tsx` — sidebar sticky con resumen dinámico: fechas, habitación, extras, total (COP/USD por locale)
+- [x] `components/reservas/step-confirmacion.tsx` — pantalla de éxito animada: código CSD-2026-XXXX, detalle completo, CTAs WhatsApp + teléfono
+- [x] `components/reservas/booking-wizard.tsx` — orquestador con `useReducer`, progress bar 5 pasos (con checks ✓ en pasos completados), layout 2 columnas desktop (wizard + sidebar sticky), responsive mobile
+- [x] `app/[locale]/reservar/page.tsx` — página pública con metadata SEO bilingüe, header con pretitle/h1/gold-divider
+- [x] Bug fixes TypeScript: `step-datos.tsx` (schema Zod `.default('')`), `step-habitacion.tsx` (tipo `Room['slug'] | null`)
+- [x] Build 100% exitoso, TypeScript strict, 0 errores, 0 warnings ESLint
+
+**Arquitectura del wizard:**
+- Estado gestionado con `useReducer` + acciones tipadas (NEXT, BACK, CONFIRM, RESET)
+- `generateCode()` crea `CSD-2026-XXXX` con charset sin ambigüedades (sin 0/O/1/I)
+- Layout: `grid lg:grid-cols-[1fr_340px]` con sidebar `lg:sticky lg:top-32`
+- Paso 5 (confirmación) ocupa ancho completo, sin sidebar
+
+### Sesión 2 — COMPLETADA ✓
+
+**Completado:**
+- [x] `types/room.ts` — interface Room tipada (slug, priceCOP, priceUSD, sqm, maxGuests, imageUrl, imageAlt bilingual, amenities)
+- [x] `lib/rooms-data.ts` — datos de las 3 habitaciones + `formatPriceCOP()` (Intl.NumberFormat)
+- [x] `components/sections/intro-bienvenida.tsx` — split layout: texto (pretitle, h2, 3 párrafos, stats 12/1730/2min) + mosaico de 2 imágenes + badge "1730 Fundada"
+- [x] `components/sections/habitaciones-destacadas.tsx` — grid 3 tarjetas: imagen portrait aspect-[3/4], nombre, tagline, desc, precio COP/USD por locale, CTA "Ver detalles", botón "Ver todas las habitaciones"
+- [x] `components/sections/experiencia-servicios.tsx` — grid 4×2 servicios (window-pane 1px dividers), iconos lucide, pretitle + h2
+- [x] Bug fix: `globals.css` `.text-body-lg` circular @apply → reemplazado con valores arbitrarios `text-[1.0625rem] leading-[1.7]`
+- [x] Build 100% exitoso, TypeScript strict, 0 errores
+
+**Imágenes (Unsplash — reemplazar con fotos reales del hotel):**
+- Intro main: `photo-1564501049412-61c2a3083791`
+- Intro detail: `photo-1551882547-ff40c63fe5fa`
+- Room patio: `photo-1631049307264-da0ec9d70304`
+- Room balcón: `photo-1618773928121-c32242e63f39`
+- Room mirador: `photo-1578683010236-d716f9a3f461`
+
 **NOTA TÉCNICA IMPORTANTE:**
 shadcn v4 usa `@base-ui/react` (NOT Radix UI). El patrón de composición es diferente:
 - NO usar `asChild` prop
@@ -70,10 +129,8 @@ shadcn v4 usa `@base-ui/react` (NOT Radix UI). El patrón de composición es dif
 - SheetContent tiene `showCloseButton={true}` por defecto → pasar `showCloseButton={false}` si pones tu propio botón
 
 **Sesiones futuras:**
-- Sesión 2: Intro/Bienvenida + Habitaciones Destacadas + Experiencia/Servicios
-- Sesión 3: Motor de reservas wizard completo (5 pasos)
 - Sesión 4: Restaurante + Experiencias curadas + Galería con lightbox
-- Sesión 5: Testimonios + Ubicación + Contacto + Newsletter + Footer premium
+- Sesión 5: Testimonios + Ubicación + Contacto + Newsletter
 - Sesión 6: Páginas internas (habitaciones, restaurante, experiencias, contacto)
 - Sesión 7: SEO + Performance + Accessibility + Deploy
 
@@ -279,7 +336,7 @@ Para retomar el trabajo, dile a Claude:
 
 El proyecto está en `C:\Users\Zaduke\Documents\casa-boutique-san-diego`.
 
-**Próximo paso al retomar:** Sesión 2 — Intro/Bienvenida + Habitaciones Destacadas + Experiencia/Servicios.
+**Próximo paso al retomar:** Sesión 4 — Restaurante + Experiencias curadas + Galería con lightbox.
 
 Antes de empezar cualquier sesión:
 1. Leer este CLAUDE.md completo
