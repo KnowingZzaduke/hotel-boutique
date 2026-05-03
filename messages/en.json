@@ -101,6 +101,44 @@
     "tooltip": "Book via WhatsApp",
     "message": "Hello, I would like to book at Casa Boutique San Diego."
   },
+  "restaurant": {
+    "pretitle": "El Patio de las Bóvedas",
+    "title": "Caribbean cuisine with a chef's soul",
+    "p1": "At the heart of the colonial house, our signature restaurant is where the Colombian Caribbean becomes fine dining. Ingredients from Bazurto market, Aristizábal family recipes and the technique of someone who trained in the country's finest kitchens.",
+    "p2": "Each dish in the tasting menu is a journey through coastal flavors: Gulf shrimp ceviche, Mompox cheese mote, ripe plantain cake with artisan coconut ice cream.",
+    "scheduleLabel": "Hours",
+    "scheduleValue": "7:00 am — 10:30 pm · Every day",
+    "accessLabel": "Access",
+    "accessValue": "Open to hotel guests and the public",
+    "tastingLabel": "Tasting menu",
+    "tastingValue": "7 courses · $280,000 COP / person",
+    "cta1": "View the menu",
+    "cta2": "Reserve a table"
+  },
+  "experiences": {
+    "pretitle": "Experiences",
+    "title": "Beyond the hotel",
+    "subtitle": "Cartagena seen from within, designed by those who truly know it",
+    "cta": "View all experiences",
+    "from": "From",
+    "duration": "Duration"
+  },
+  "gallery": {
+    "pretitle": "Gallery",
+    "title": "An image for every story",
+    "cta": "View full gallery",
+    "caption": {
+      "pool": "Colonial pool surrounded by century-old palms",
+      "restaurant": "El Patio de las Bóvedas, signature restaurant",
+      "facade": "Restored 18th-century colonial facade",
+      "room": "Mirador Suite with private terrace",
+      "spa": "Spa & Wellness treatment room",
+      "rooftop": "Rooftop bar with views of the city walls",
+      "street": "Cobblestone streets of San Diego neighborhood",
+      "cocktails": "Caribbean cocktail menu with local ingredients",
+      "courtyard": "Central courtyard with original colonial well"
+    }
+  },
   "booking": {
     "title": "Book your stay",
     "steps": {

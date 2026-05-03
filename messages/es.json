@@ -101,6 +101,44 @@
     "tooltip": "Reservar por WhatsApp",
     "message": "Hola, me gustaría reservar en Casa Boutique San Diego."
   },
+  "restaurant": {
+    "pretitle": "El Patio de las Bóvedas",
+    "title": "Cocina caribeña con alma de autor",
+    "p1": "En el corazón de la casa colonial, nuestro restaurante de autor es el lugar donde el Caribe colombiano se convierte en alta cocina. Productos del mercado de Bazurto, recetas de la abuela Aristizábal y la técnica de quien aprendió en las mejores cocinas del país.",
+    "p2": "Cada plato del menú degustación es un viaje por los sabores del litoral: el ceviche de camarones del Golfo, el mote de queso de Mompox, la torta de plátano maduro con helado de coco artesanal.",
+    "scheduleLabel": "Horario",
+    "scheduleValue": "7:00 am — 10:30 pm · Todos los días",
+    "accessLabel": "Acceso",
+    "accessValue": "Abierto a huéspedes y público general",
+    "tastingLabel": "Menú degustación",
+    "tastingValue": "7 tiempos · $280.000 COP / persona",
+    "cta1": "Ver la carta",
+    "cta2": "Reservar mesa"
+  },
+  "experiences": {
+    "pretitle": "Experiencias",
+    "title": "Más allá del hotel",
+    "subtitle": "Cartagena vista desde adentro, diseñada por quienes la conocen de verdad",
+    "cta": "Ver todas las experiencias",
+    "from": "Desde",
+    "duration": "Duración"
+  },
+  "gallery": {
+    "pretitle": "Galería",
+    "title": "Una imagen por cada historia",
+    "cta": "Ver galería completa",
+    "caption": {
+      "pool": "Piscina colonial rodeada de palmeras centenarias",
+      "restaurant": "El Patio de las Bóvedas, restaurante de autor",
+      "facade": "Fachada colonial restaurada del siglo XVIII",
+      "room": "Suite Mirador con terraza privada",
+      "spa": "Sala de tratamientos Spa & Bienestar",
+      "rooftop": "Terraza con bar y vista a las murallas",
+      "street": "Calles empedradas del barrio San Diego",
+      "cocktails": "Carta de cócteles caribeños con ingredientes locales",
+      "courtyard": "Patio central con pozo colonial original"
+    }
+  },
   "booking": {
     "title": "Motor de reservas",
     "steps": {
