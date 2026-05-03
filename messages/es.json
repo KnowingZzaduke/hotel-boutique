@@ -148,5 +148,58 @@
       "guest": "Datos",
       "confirm": "Confirmación"
     }
+  },
+  "testimonios": {
+    "pretitle": "Opiniones",
+    "title": "Lo que dicen nuestros huéspedes",
+    "verified": "Reseña verificada en"
+  },
+  "ubicacion": {
+    "pretitle": "Ubicación",
+    "title": "En el corazón de la ciudad amurallada",
+    "subtitle": "Calle de las Bóvedas #39-67 · Barrio San Diego · Centro Histórico Amurallado, Cartagena",
+    "directionsLabel": "Cómo llegar",
+    "directionsCta": "Ver en Google Maps",
+    "distances": {
+      "wall":    { "label": "Muralla colonial",          "value": "2 min a pie"    },
+      "airport": { "label": "Aeropuerto Rafael Núñez",   "value": "20 min en auto" },
+      "beach":   { "label": "Playa de Bocagrande",       "value": "15 min en auto" },
+      "market":  { "label": "Mercado de Bazurto",        "value": "10 min en auto" }
+    }
+  },
+  "contacto": {
+    "pretitle": "Contacto",
+    "title": "Estamos aquí para ti",
+    "subtitle": "Escríbenos y te respondemos en menos de 2 horas. También puedes contactarnos directamente por WhatsApp.",
+    "form": {
+      "name":               "Nombre completo",
+      "email":              "Correo electrónico",
+      "phone":              "Teléfono (opcional)",
+      "message":            "Mensaje",
+      "messagePlaceholder": "¿En qué podemos ayudarte?",
+      "submit":             "Enviar mensaje",
+      "sending":            "Enviando...",
+      "success":            "¡Mensaje recibido! Te respondemos pronto.",
+      "error":              "Algo salió mal. Intenta de nuevo o escríbenos por WhatsApp."
+    },
+    "info": {
+      "phone":     "Teléfono",
+      "email":     "Correo",
+      "reception": "Recepción",
+      "receptionValue": "24 horas · todos los días"
+    },
+    "whatsappLabel": "¿Prefieres escribir directamente?",
+    "whatsappCta":   "Abrir WhatsApp"
+  },
+  "newsletter": {
+    "pretitle":    "Newsletter",
+    "title":       "Temporadas exclusivas.\nPara quienes las merecen.",
+    "subtitle":    "Ofertas de temporada, novedades del hotel y experiencias antes que nadie. Sin spam.",
+    "placeholder": "Tu correo electrónico",
+    "cta":         "Suscribirme",
+    "sending":     "Un momento...",
+    "success":     "¡Bienvenido! Revisa tu correo.",
+    "error":       "Algo salió mal. Inténtalo de nuevo.",
+    "privacy":     "Nos importa tu privacidad. Cancela cuando quieras."
   }
 }

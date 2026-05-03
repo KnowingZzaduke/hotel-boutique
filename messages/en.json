@@ -148,5 +148,58 @@
       "guest": "Details",
       "confirm": "Confirmation"
     }
+  },
+  "testimonios": {
+    "pretitle": "Reviews",
+    "title": "What our guests say",
+    "verified": "Verified review on"
+  },
+  "ubicacion": {
+    "pretitle": "Location",
+    "title": "In the heart of the walled city",
+    "subtitle": "Calle de las Bóvedas #39-67 · San Diego District · Historic Walled Center, Cartagena",
+    "directionsLabel": "How to get here",
+    "directionsCta": "View on Google Maps",
+    "distances": {
+      "wall":    { "label": "Colonial city wall",      "value": "2 min walk"  },
+      "airport": { "label": "Rafael Núñez Airport",    "value": "20 min drive" },
+      "beach":   { "label": "Bocagrande Beach",        "value": "15 min drive" },
+      "market":  { "label": "Bazurto Market",          "value": "10 min drive" }
+    }
+  },
+  "contacto": {
+    "pretitle": "Contact",
+    "title": "We are here for you",
+    "subtitle": "Write to us and we will respond in under 2 hours. You can also contact us directly via WhatsApp.",
+    "form": {
+      "name":               "Full name",
+      "email":              "Email address",
+      "phone":              "Phone (optional)",
+      "message":            "Message",
+      "messagePlaceholder": "How can we help you?",
+      "submit":             "Send message",
+      "sending":            "Sending...",
+      "success":            "Message received! We will get back to you shortly.",
+      "error":              "Something went wrong. Try again or reach us via WhatsApp."
+    },
+    "info": {
+      "phone":     "Phone",
+      "email":     "Email",
+      "reception": "Reception",
+      "receptionValue": "24 hours · every day"
+    },
+    "whatsappLabel": "Prefer to write directly?",
+    "whatsappCta":   "Open WhatsApp"
+  },
+  "newsletter": {
+    "pretitle":    "Newsletter",
+    "title":       "Exclusive seasons.\nFor those who deserve them.",
+    "subtitle":    "Seasonal offers, hotel news and experiences before anyone else. No spam.",
+    "placeholder": "Your email address",
+    "cta":         "Subscribe",
+    "sending":     "One moment...",
+    "success":     "Welcome! Check your inbox.",
+    "error":       "Something went wrong. Please try again.",
+    "privacy":     "We care about your privacy. Unsubscribe anytime."
   }
 }

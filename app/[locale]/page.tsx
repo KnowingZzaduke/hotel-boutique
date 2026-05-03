@@ -5,6 +5,10 @@ import { ExperienciaServicios } from '@/components/sections/experiencia-servicio
 import { Restaurante } from '@/components/sections/restaurante';
 import { ExperienciasCuradas } from '@/components/sections/experiencias-curadas';
 import { Galeria } from '@/components/sections/galeria';
+import { Testimonios } from '@/components/sections/testimonios';
+import { Ubicacion } from '@/components/sections/ubicacion';
+import { ContactoReservas } from '@/components/sections/contacto-reservas';
+import { Newsletter } from '@/components/sections/newsletter';
 import { WhatsappFloat } from '@/components/shared/whatsapp-float';
 
 export default function HomePage() {
@@ -17,7 +21,10 @@ export default function HomePage() {
       <Restaurante />
       <ExperienciasCuradas />
       <Galeria />
-      {/* Sesión 5: Testimonios, Ubicacion, ContactoReservas, Newsletter */}
+      <Testimonios />
+      <Ubicacion />
+      <ContactoReservas />
+      <Newsletter />
       <WhatsappFloat />
     </>
   );

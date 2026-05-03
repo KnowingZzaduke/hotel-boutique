@@ -138,14 +138,27 @@ Sitio web profesional para hotel boutique ficticio en Cartagena, Colombia. Cumpl
 
 ## Sesiones pendientes
 
-### Sesión 5 — PENDIENTE
-**Testimonios + Ubicación + Contacto + Newsletter**
-- `components/sections/testimonios.tsx` — slider/grid de reviews con foto, nombre, rating stars, texto, fecha
-- `components/sections/ubicacion.tsx` — mapa embebido (Google Maps o Mapbox), dirección, distancias clave (muralla, aeropuerto, centro)
-- `components/sections/contacto-reservas.tsx` — formulario react-hook-form + zod: nombre, email, teléfono, mensaje, CTA WhatsApp
-- `components/sections/newsletter.tsx` — campo email + CTA suscripción (Resend Audiences o simple POST)
-- `lib/testimonials-data.ts` — datos de 6-8 testimonios con rating, nombre, origen, fecha
-- Traducciones: claves `testimonios`, `ubicacion`, `contacto`, `newsletter` en es.json/en.json
+### Sesión 5 — COMPLETADA ✓
+
+- [x] `lib/testimonials-data.ts` — interface `Testimonial` + 6 reviews con avatar Unsplash, rating 5⭐, plataforma (Google/TripAdvisor/Booking.com), texto bilingüe
+- [x] `messages/es.json` + `messages/en.json` — claves nuevas: `testimonios`, `ubicacion`, `contacto`, `newsletter`
+- [x] `components/sections/testimonios.tsx` — carrusel embla-carousel-react, 3 cards visibles en desktop, nav arrows + dots, StarRating component, PlatformBadge con colores de marca
+- [x] `components/sections/ubicacion.tsx` — mapa OpenStreetMap (iframe sin API key), split layout mapa/info, 4 tarjetas de distancia con iconos, CTA Google Maps
+- [x] `components/sections/contacto-reservas.tsx` — react-hook-form + zod, split layout formulario/sidebar, info de contacto, CTA WhatsApp con fondo dark
+- [x] `components/sections/newsletter.tsx` — fondo `bg-hotel-deep`, título serif en 2 líneas, input email + botón gold, nota de privacidad
+- [x] `app/api/contact/route.ts` — POST con Resend (graceful si no configurado), email HTML premium con botón Reply al hotel
+- [x] `app/api/newsletter/route.ts` — POST con Resend, soporte opcional Resend Audiences via `RESEND_AUDIENCE_ID`
+- [x] `app/[locale]/page.tsx` — 4 secciones integradas: Testimonios → Ubicacion → ContactoReservas → Newsletter
+- [x] Build 100% exitoso, TypeScript strict, 0 errores
+
+**Secuencia completa de fondos (home):**
+`Hero (dark)` → `Intro (bg)` → `Habitaciones (surface-alt)` → `Servicios (bg)` → `Restaurante (deep)` → `Experiencias (surface-alt)` → `Galeria (bg)` → **`Testimonios (surface-alt)`** → **`Ubicacion (bg)`** → **`Contacto (surface-alt)`** → **`Newsletter (deep)`** → Footer
+
+**Mapa:** OpenStreetMap embed (no requiere API key) centrado en coords 10.4296°N / 75.5496°W (Barrio San Diego, Cartagena)
+
+**Variables de entorno necesarias para activar funcionalidades Sesión 5:**
+- `RESEND_API_KEY` — ya requerido desde Sesión 3b
+- `RESEND_AUDIENCE_ID` (opcional) — para agregar suscriptores a Resend Audiences
 
 ### Sesión 6 — PENDIENTE
 **Páginas internas**
@@ -367,7 +380,7 @@ Para retomar el trabajo, dile a Claude:
 
 El proyecto está en `C:\Users\Zaduke\Documents\casa-boutique-san-diego`.
 
-**Próximo paso al retomar:** Sesión 5 — Testimonios + Ubicación + Contacto + Newsletter.
+**Próximo paso al retomar:** Sesión 6 — Páginas internas (habitaciones, restaurante, experiencias, galería, contacto).
 
 Antes de empezar cualquier sesión:
 1. Leer este CLAUDE.md completo
