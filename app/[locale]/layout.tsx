@@ -6,6 +6,8 @@ import { notFound } from 'next/navigation';
 import { Providers } from '@/components/shared/providers';
 import { Navbar } from '@/components/shared/navbar';
 import { Footer } from '@/components/shared/footer';
+import { JsonLd } from '@/components/shared/json-ld';
+import { hotelSchema } from '@/lib/schema';
 import '../globals.css';
 
 const cormorant = Cormorant_Garamond({
@@ -109,6 +111,7 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body className="min-h-screen bg-hotel-bg text-hotel-text antialiased">
+        <JsonLd data={hotelSchema(locale)} />
         <a href="#main-content" className="skip-to-content">
           {locale === 'es' ? 'Ir al contenido principal' : 'Skip to main content'}
         </a>

@@ -3,6 +3,9 @@ import Image from 'next/image';
 import { getLocale } from 'next-intl/server';
 import { Clock, Users } from 'lucide-react';
 import { MENU_SECTIONS, RESTAURANT_GALLERY } from '@/lib/restaurant-data';
+import { JsonLd } from '@/components/shared/json-ld';
+import { restaurantSchema, breadcrumbSchema } from '@/lib/schema';
+import { BLUR_DEEP } from '@/lib/blur-placeholder';
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -22,6 +25,13 @@ export default async function RestaurantePage() {
 
   return (
     <div className="min-h-screen bg-hotel-bg">
+      <JsonLd data={[
+        restaurantSchema(locale),
+        breadcrumbSchema([
+          { name: isEs ? 'Inicio' : 'Home',       url: isEs ? '/' : '/en'              },
+          { name: isEs ? 'Restaurante' : 'Restaurant', url: isEs ? '/restaurante' : '/en/restaurante' },
+        ]),
+      ]} />
 
       {/* Hero */}
       <div className="relative h-[60vh] min-h-[420px] overflow-hidden">
@@ -30,6 +40,8 @@ export default async function RestaurantePage() {
           alt={RESTAURANT_GALLERY[0].alt[lang]}
           fill
           quality={88}
+          placeholder="blur"
+          blurDataURL={BLUR_DEEP}
           className="object-cover"
           priority
           sizes="100vw"

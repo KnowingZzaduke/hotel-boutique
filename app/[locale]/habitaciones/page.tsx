@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getLocale } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { ArrowRight, Users, Maximize2 } from 'lucide-react';
 import { ROOMS, formatPriceCOP } from '@/lib/rooms-data';
-import { getTranslations } from 'next-intl/server';
+import { JsonLd } from '@/components/shared/json-ld';
+import { breadcrumbSchema } from '@/lib/schema';
+import { BLUR_GOLD } from '@/lib/blur-placeholder';
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -26,6 +28,10 @@ export default async function HabitacionesPage() {
 
   return (
     <div className="pt-32 pb-24 min-h-screen bg-hotel-bg">
+      <JsonLd data={breadcrumbSchema([
+        { name: isEs ? 'Inicio' : 'Home', url: isEs ? '/' : '/en' },
+        { name: isEs ? 'Habitaciones' : 'Rooms', url: isEs ? '/habitaciones' : '/en/habitaciones' },
+      ])} />
       <div className="section-container">
 
         {/* Page header */}
@@ -62,6 +68,8 @@ export default async function HabitacionesPage() {
                     alt={room.imageAlt[lang]}
                     fill
                     quality={85}
+                    placeholder="blur"
+                    blurDataURL={BLUR_GOLD}
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />

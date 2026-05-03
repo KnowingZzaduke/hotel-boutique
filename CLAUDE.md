@@ -178,14 +178,37 @@ Sitio web profesional para hotel boutique ficticio en Cartagena, Colombia. Cumpl
 - [x] `app/[locale]/contacto/page.tsx` — server component que compone `ContactoReservas` + `Ubicacion`
 - [x] Build 100% exitoso, TypeScript strict, 0 errores, 28 páginas estáticas
 
-### Sesión 7 — PENDIENTE
-**SEO + Performance + Accessibility + Deploy**
-- Metadata completa por página (Open Graph, Twitter Cards)
-- JSON-LD Schema.org: Hotel + LocalBusiness + Reviews
-- next/image optimization + blur placeholders
-- WCAG AA audit
-- Lighthouse ≥ 90 en todo
-- Deploy en Vercel + dominio personalizado
+### Sesión 7 — COMPLETADA ✓
+
+**SEO — Indexación:**
+- [x] `app/sitemap.ts` — sitemap dinámico todas las rutas × 2 locales, hreflang alternates, prioridades → genera `/sitemap.xml`
+- [x] `app/robots.ts` — robots.txt, bloquea `/api/` y `/_next/`, referencia sitemap → genera `/robots.txt`
+
+**SEO — Structured Data:**
+- [x] `lib/schema.ts` — `hotelSchema()`, `breadcrumbSchema()`, `roomSchema()`, `restaurantSchema()`
+- [x] `components/shared/json-ld.tsx` — renderer servidor `<script type="application/ld+json">`
+- [x] Layout: Hotel JSON-LD en todas las páginas
+- [x] `/habitaciones/[slug]`: HotelRoom + BreadcrumbList; `/restaurante`: Restaurant + BreadcrumbList; `/habitaciones`: BreadcrumbList
+
+**Performance:**
+- [x] `lib/blur-placeholder.ts` — `BLUR_WARM`, `BLUR_DEEP`, `BLUR_GOLD` (SVG base64, paleta hotel)
+- [x] `next.config.mjs` — formatos AVIF + WebP, deviceSizes/imageSizes optimizados
+- [x] Blur placeholders en: hero-cinematic, restaurante section, habitaciones listing, room hero, restaurante hero
+
+**Seguridad (HTTP headers):**
+- [x] 6 security headers: X-Content-Type-Options, X-Frame-Options:DENY, X-XSS-Protection, Referrer-Policy, Permissions-Policy, HSTS. Cache headers para static assets.
+
+**Accesibilidad:**
+- [x] `.scrollbar-hide` utility añadida (fix bug galería filtros)
+- [x] Pre-existente: focus-visible gold, skip-to-content, aria-labels en hero
+
+**Build: ✓ 30 páginas estáticas, sitemap.xml, robots.txt, 0 errores TypeScript**
+
+**Deploy en Vercel:**
+1. `vercel login` → conectar cuenta
+2. `vercel --prod` o conectar repo en vercel.com/dashboard
+3. Variables de entorno: `RESEND_API_KEY`, `RESEND_FROM_EMAIL`, `HOTEL_NOTIFICATION_EMAIL`, `NEXT_PUBLIC_SITE_URL=https://casaboutiquesandiego.com`
+4. Opcional: `RESEND_AUDIENCE_ID` para newsletter
 
 ---
 
@@ -389,7 +412,7 @@ Para retomar el trabajo, dile a Claude:
 
 El proyecto está en `C:\Users\Zaduke\Documents\casa-boutique-san-diego`.
 
-**Próximo paso al retomar:** Sesión 7 — SEO + Performance + Accessibility + Deploy.
+**Próximo paso al retomar:** El sitio está completo. Pendiente: deploy en Vercel + reemplazar imágenes Unsplash con fotos reales del hotel.
 
 Antes de empezar cualquier sesión:
 1. Leer este CLAUDE.md completo

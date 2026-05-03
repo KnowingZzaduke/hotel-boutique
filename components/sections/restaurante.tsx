@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { ArrowRight, Clock, Users, Star } from 'lucide-react';
+import { BLUR_GOLD } from '@/lib/blur-placeholder';
 
 const IMG_RESTAURANT =
   'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=85&auto=format&fit=crop';
@@ -54,6 +55,8 @@ export function Restaurante() {
             }
             fill
             quality={88}
+            placeholder="blur"
+            blurDataURL={BLUR_GOLD}
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />

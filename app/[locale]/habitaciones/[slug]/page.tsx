@@ -7,6 +7,9 @@ import { ArrowLeft, ArrowRight, Users, Maximize2, Wind, Bath, Wifi, Wine, DoorOp
 import type { LucideIcon } from 'lucide-react';
 import { ROOMS, formatPriceCOP, getRoomBySlug, getAdjacentRooms } from '@/lib/rooms-data';
 import { RoomGalleryClient } from './room-gallery-client';
+import { JsonLd } from '@/components/shared/json-ld';
+import { roomSchema, breadcrumbSchema } from '@/lib/schema';
+import { BLUR_DEEP } from '@/lib/blur-placeholder';
 
 const AMENITY_ICONS: Record<string, LucideIcon> = {
   'A/C':       Wind,
@@ -63,6 +66,14 @@ export default async function RoomDetailPage({ params }: { params: { slug: strin
 
   return (
     <div className="min-h-screen bg-hotel-bg">
+      <JsonLd data={[
+        roomSchema(room, locale),
+        breadcrumbSchema([
+          { name: isEs ? 'Inicio' : 'Home',           url: isEs ? '/' : '/en'                                },
+          { name: isEs ? 'Habitaciones' : 'Rooms',    url: isEs ? '/habitaciones' : '/en/habitaciones'       },
+          { name: t(`${room.slug}.name`),             url: isEs ? `/habitaciones/${room.slug}` : `/en/habitaciones/${room.slug}` },
+        ]),
+      ]} />
 
       {/* Hero */}
       <div className="relative h-[70vh] min-h-[480px] overflow-hidden">
@@ -71,6 +82,8 @@ export default async function RoomDetailPage({ params }: { params: { slug: strin
           alt={room.gallery[0].alt[lang]}
           fill
           quality={90}
+          placeholder="blur"
+          blurDataURL={BLUR_DEEP}
           className="object-cover"
           priority
           sizes="100vw"

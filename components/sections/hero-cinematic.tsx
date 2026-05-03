@@ -6,6 +6,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Star, ChevronDown, MessageCircle } from 'lucide-react';
 import { QuickSearchWidget } from '@/components/reservas/quick-search-widget';
+import { BLUR_DEEP } from '@/lib/blur-placeholder';
 
 const HERO_IMAGE =
   'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920&q=85&auto=format&fit=crop';
@@ -58,6 +59,8 @@ export function HeroCinematic() {
           fill
           priority
           quality={85}
+          placeholder="blur"
+          blurDataURL={BLUR_DEEP}
           className="object-cover animate-ken-burns"
           sizes="100vw"
         />
