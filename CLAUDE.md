@@ -160,14 +160,23 @@ Sitio web profesional para hotel boutique ficticio en Cartagena, Colombia. Cumpl
 - `RESEND_API_KEY` — ya requerido desde Sesión 3b
 - `RESEND_AUDIENCE_ID` (opcional) — para agregar suscriptores a Resend Audiences
 
-### Sesión 6 — PENDIENTE
-**Páginas internas**
-- `app/[locale]/habitaciones/page.tsx` — listado completo de las 3 habitaciones con filtros
-- `app/[locale]/habitaciones/[slug]/page.tsx` — página detalle: galería, amenities, disponibilidad, CTA reservar
-- `app/[locale]/restaurante/page.tsx` — carta completa, galería, reserva
-- `app/[locale]/experiencias/page.tsx` — grid completo de las 6 experiencias + booking
-- `app/[locale]/galeria/page.tsx` — galería completa con lightbox y categorías
-- `app/[locale]/contacto/page.tsx` — formulario + mapa + info de contacto
+### Sesión 6 — COMPLETADA ✓
+
+**Data files nuevos:**
+- [x] `types/room.ts` — extendido con `RoomGalleryImage`, `view`, `description`, `gallery` por habitación
+- [x] `lib/rooms-data.ts` — 3 habitaciones con galería de 4 fotos c/u, descripciones 3 párrafos bilingüe, `getRoomBySlug()`, `getAdjacentRooms()`
+- [x] `lib/restaurant-data.ts` — 3 secciones de menú (Desayuno, Carta, Degustación), galería restaurante
+- [x] `lib/gallery-data.ts` — 16 imágenes categorizadas: habitaciones/espacios/gastronomia/cartagena + `GALLERY_CATEGORIES`
+
+**Páginas internas (todas biliguales ES/EN, metadata SEO, 28 páginas estáticas generadas):**
+- [x] `app/[locale]/habitaciones/page.tsx` — listado horizontal alternado: foto lado/contenido, amenities tags, stats m²/huéspedes, CTA "Ver detalles" + "Reservar"
+- [x] `app/[locale]/habitaciones/[slug]/page.tsx` — server component con `generateStaticParams` + `generateMetadata`; hero 70vh con breadcrumb, highlights bar, descripción completa, amenities con iconos Lucide, galería con lightbox (client component separado), sticky booking card, nav prev/next habitación
+- [x] `app/[locale]/habitaciones/[slug]/room-gallery-client.tsx` — client component separado para lightbox (resuelve conflicto `'use client'` + `generateStaticParams`)
+- [x] `app/[locale]/restaurante/page.tsx` — hero + info bar horario/acceso, intro, menú degustación + carta + desayuno en cards, galería, CTA WhatsApp
+- [x] `app/[locale]/experiencias/page.tsx` — header con descripción, grid 3×2 experiencias con duración/precio/CTA WhatsApp, sección conserjería a medida
+- [x] `app/[locale]/galeria/page.tsx` — client component, header + filtros sticky por categoría, grid 4 columnas (1ª = 2×2), lightbox
+- [x] `app/[locale]/contacto/page.tsx` — server component que compone `ContactoReservas` + `Ubicacion`
+- [x] Build 100% exitoso, TypeScript strict, 0 errores, 28 páginas estáticas
 
 ### Sesión 7 — PENDIENTE
 **SEO + Performance + Accessibility + Deploy**
@@ -380,7 +389,7 @@ Para retomar el trabajo, dile a Claude:
 
 El proyecto está en `C:\Users\Zaduke\Documents\casa-boutique-san-diego`.
 
-**Próximo paso al retomar:** Sesión 6 — Páginas internas (habitaciones, restaurante, experiencias, galería, contacto).
+**Próximo paso al retomar:** Sesión 7 — SEO + Performance + Accessibility + Deploy.
 
 Antes de empezar cualquier sesión:
 1. Leer este CLAUDE.md completo
