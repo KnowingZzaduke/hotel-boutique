@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { Menu, X, Phone, MessageCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { LanguageToggle } from './language-toggle';
@@ -22,6 +23,10 @@ export function Navbar() {
   const locale = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const pathname = usePathname();
+  const isHomePage = pathname === '/' || pathname === '/en';
+  const transparent = isHomePage && !scrolled;
 
   const prefix = locale === 'en' ? '/en' : '';
 
@@ -45,9 +50,9 @@ export function Navbar() {
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
-        scrolled
-          ? 'bg-hotel-surface/95 backdrop-blur-md shadow-hotel border-b border-hotel-border'
-          : 'bg-transparent'
+        transparent
+          ? 'bg-gradient-to-b from-black/50 to-transparent'
+          : 'bg-hotel-surface/95 backdrop-blur-md shadow-hotel border-b border-hotel-border'
       )}
       style={{ height: 'var(--navbar-height)' }}
     >
@@ -63,7 +68,7 @@ export function Navbar() {
             <span
               className={cn(
                 'font-cormorant font-medium tracking-wide transition-colors duration-300 text-[1.35rem]',
-                scrolled ? 'text-hotel-text' : 'text-white'
+                transparent ? 'text-white' : 'text-hotel-text'
               )}
             >
               Casa Boutique
@@ -71,7 +76,7 @@ export function Navbar() {
             <span
               className={cn(
                 'font-cormorant font-light tracking-[0.18em] text-[0.75rem] uppercase transition-colors duration-300',
-                scrolled ? 'text-hotel-gold' : 'text-hotel-gold-light'
+                transparent ? 'text-hotel-gold-light' : 'text-hotel-gold'
               )}
             >
               San Diego
@@ -79,7 +84,7 @@ export function Navbar() {
             <span
               className={cn(
                 'font-inter text-[0.6rem] tracking-[0.2em] uppercase transition-colors duration-300 mt-0.5',
-                scrolled ? 'text-hotel-text-tertiary' : 'text-white/60'
+                transparent ? 'text-white/60' : 'text-hotel-text-tertiary'
               )}
             >
               {t('location')}
@@ -99,16 +104,16 @@ export function Navbar() {
               className={cn(
                 'font-inter text-[0.78rem] font-medium tracking-wider uppercase px-3 py-1.5 rounded-sm',
                 'transition-all duration-200 relative group',
-                scrolled
-                  ? 'text-hotel-text-secondary hover:text-hotel-primary'
-                  : 'text-white/80 hover:text-white'
+                transparent
+                  ? 'text-white/80 hover:text-white'
+                  : 'text-hotel-text-secondary hover:text-hotel-primary'
               )}
             >
               {label}
               <span
                 className={cn(
                   'absolute bottom-0 left-3 right-3 h-px transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100',
-                  scrolled ? 'bg-hotel-gold' : 'bg-white/60'
+                  transparent ? 'bg-white/60' : 'bg-hotel-gold'
                 )}
               />
             </Link>
@@ -117,8 +122,8 @@ export function Navbar() {
 
         {/* Right controls — desktop */}
         <div className="hidden lg:flex items-center gap-2">
-          <LanguageToggle variant={scrolled ? 'default' : 'light'} />
-          <ThemeToggle variant={scrolled ? 'default' : 'light'} />
+          <LanguageToggle variant={transparent ? 'light' : 'default'} />
+          <ThemeToggle variant={transparent ? 'light' : 'default'} />
 
           <a
             href={WHATSAPP_URL}
@@ -127,9 +132,9 @@ export function Navbar() {
             aria-label={t('bookWhatsapp')}
             className={cn(
               'flex items-center gap-1.5 font-inter text-xs font-medium tracking-wide px-4 py-2 rounded-sm transition-all duration-300',
-              scrolled
-                ? 'text-hotel-text-secondary border border-hotel-border hover:border-hotel-gold hover:text-hotel-primary'
-                : 'text-white/80 border border-white/25 hover:border-white/60 hover:text-white'
+              transparent
+                ? 'text-white/80 border border-white/25 hover:border-white/60 hover:text-white'
+                : 'text-hotel-text-secondary border border-hotel-border hover:border-hotel-gold hover:text-hotel-primary'
             )}
           >
             <MessageCircle size={13} strokeWidth={1.5} />
@@ -140,9 +145,9 @@ export function Navbar() {
             href={`${prefix}/reservar`}
             className={cn(
               'flex items-center gap-1.5 font-inter text-xs font-semibold tracking-widest uppercase px-5 py-2.5 rounded-sm transition-all duration-300',
-              scrolled
-                ? 'bg-hotel-primary text-white hover:bg-hotel-deep shadow-hotel'
-                : 'bg-transparent text-white border border-hotel-gold/70 hover:bg-hotel-primary hover:border-hotel-primary'
+              transparent
+                ? 'bg-transparent text-white border border-hotel-gold/70 hover:bg-hotel-primary hover:border-hotel-primary'
+                : 'bg-hotel-primary text-white hover:bg-hotel-deep shadow-hotel'
             )}
           >
             {t('book')}
@@ -151,8 +156,8 @@ export function Navbar() {
 
         {/* Mobile controls */}
         <div className="flex lg:hidden items-center gap-2">
-          <LanguageToggle variant={scrolled ? 'default' : 'light'} />
-          <ThemeToggle variant={scrolled ? 'default' : 'light'} />
+          <LanguageToggle variant={transparent ? 'light' : 'default'} />
+          <ThemeToggle variant={transparent ? 'light' : 'default'} />
 
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             {/* Base UI Sheet uses render prop, not asChild */}
@@ -160,9 +165,9 @@ export function Navbar() {
               aria-label="Abrir menú"
               className={cn(
                 'flex items-center justify-center w-9 h-9 rounded-sm transition-colors duration-200',
-                scrolled
-                  ? 'text-hotel-text hover:text-hotel-primary'
-                  : 'text-white hover:text-white/80'
+                transparent
+                  ? 'text-white hover:text-white/80'
+                  : 'text-hotel-text hover:text-hotel-primary'
               )}
             >
               <Menu size={22} strokeWidth={1.5} />

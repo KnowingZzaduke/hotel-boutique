@@ -2,6 +2,7 @@
 
 import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
+import { useTransition } from 'react';
 import { cn } from '@/lib/utils';
 
 interface LanguageToggleProps {
@@ -13,19 +14,23 @@ export function LanguageToggle({ className, variant = 'default' }: LanguageToggl
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
+  const [isPending, startTransition] = useTransition();
 
   const switchLocale = (newLocale: string) => {
-    if (newLocale === locale) return;
+    if (newLocale === locale || isPending) return;
 
     const isCurrentEn = pathname.startsWith('/en');
+    let newPath: string;
 
     if (newLocale === 'en') {
-      const newPath = isCurrentEn ? pathname : `/en${pathname}`;
-      router.push(newPath);
+      newPath = isCurrentEn ? pathname : `/en${pathname}`;
     } else {
-      const newPath = isCurrentEn ? pathname.replace(/^\/en/, '') || '/' : pathname;
-      router.push(newPath);
+      newPath = isCurrentEn ? pathname.replace(/^\/en/, '') || '/' : pathname;
     }
+
+    startTransition(() => {
+      router.push(newPath);
+    });
   };
 
   const isLight = variant === 'light';
@@ -34,6 +39,7 @@ export function LanguageToggle({ className, variant = 'default' }: LanguageToggl
     <div
       className={cn(
         'flex items-center gap-0.5 font-inter text-xs font-medium tracking-widest uppercase',
+        isPending && 'opacity-60 pointer-events-none',
         className
       )}
       role="group"
@@ -43,6 +49,7 @@ export function LanguageToggle({ className, variant = 'default' }: LanguageToggl
         onClick={() => switchLocale('es')}
         aria-pressed={locale === 'es'}
         aria-label="Cambiar a español"
+        disabled={isPending}
         className={cn(
           'px-1.5 py-0.5 rounded-sm transition-all duration-200',
           locale === 'es'
@@ -56,18 +63,14 @@ export function LanguageToggle({ className, variant = 'default' }: LanguageToggl
       >
         ES
       </button>
-      <span
-        className={cn(
-          'text-[10px]',
-          isLight ? 'text-white/30' : 'text-hotel-text-tertiary'
-        )}
-      >
+      <span className={cn('text-[10px]', isLight ? 'text-white/30' : 'text-hotel-text-tertiary')}>
         |
       </span>
       <button
         onClick={() => switchLocale('en')}
         aria-pressed={locale === 'en'}
         aria-label="Switch to English"
+        disabled={isPending}
         className={cn(
           'px-1.5 py-0.5 rounded-sm transition-all duration-200',
           locale === 'en'
