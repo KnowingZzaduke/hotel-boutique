@@ -102,8 +102,8 @@ export const RESTAURANT_GALLERY = [
     alt: { es: 'Montaje de mesa con cristalería premium y flores tropicales', en: 'Table setting with premium glassware and tropical flowers' },
   },
   {
-    url: 'https://images.unsplash.com/photo-1559327291-72f6ccf60e48?w=900&q=85&auto=format&fit=crop',
-    alt: { es: 'Piscina colonial rodeada del jardín del restaurante', en: 'Colonial pool surrounded by the restaurant garden' },
+    url: 'https://images.unsplash.com/photo-1519690889869-e705e59f72e1?w=900&q=85&auto=format&fit=crop',
+    alt: { es: 'Terraza exterior del restaurante con jardín tropical', en: 'Restaurant outdoor terrace with tropical garden' },
   },
   {
     url: 'https://images.unsplash.com/photo-1481931098730-318b6f776db0?w=900&q=85&auto=format&fit=crop',

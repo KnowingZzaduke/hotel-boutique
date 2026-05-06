@@ -98,7 +98,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   // Cartagena
   {
     id: 'city-street',
-    url: 'https://images.unsplash.com/photo-1512813498816-36b04c1a5289?w=1200&q=85&auto=format&fit=crop',
+    url: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=1200&q=85&auto=format&fit=crop',
     alt: { es: 'Calles empedradas del barrio San Diego al amanecer', en: 'Cobblestone streets of San Diego neighborhood at dawn' },
     category: 'cartagena',
   },

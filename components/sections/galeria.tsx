@@ -63,7 +63,7 @@ const GALLERY_IMAGES: GalleryImage[] = [
   },
   {
     id: 'street',
-    src: 'https://images.unsplash.com/photo-1512813498816-36b04c1a5289?w=900&q=85&auto=format&fit=crop',
+    src: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=900&q=85&auto=format&fit=crop',
     captionKey: 'street',
     captionEs: 'Calles empedradas del barrio San Diego',
     captionEn: 'Cobblestone streets of San Diego neighborhood',
