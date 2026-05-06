@@ -115,7 +115,7 @@ export default async function LocaleLayout({
         <a href="#main-content" className="skip-to-content">
           {locale === 'es' ? 'Ir al contenido principal' : 'Skip to main content'}
         </a>
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <Providers>
             <Navbar />
             <main id="main-content">{children}</main>

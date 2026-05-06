@@ -1,7 +1,7 @@
 'use client';
 
 import { useLocale } from 'next-intl';
-import { useRouter, usePathname } from 'next/navigation';
+import { useRouter, usePathname } from '@/i18n/navigation';
 import { useTransition } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -18,18 +18,8 @@ export function LanguageToggle({ className, variant = 'default' }: LanguageToggl
 
   const switchLocale = (newLocale: string) => {
     if (newLocale === locale || isPending) return;
-
-    const isCurrentEn = pathname.startsWith('/en');
-    let newPath: string;
-
-    if (newLocale === 'en') {
-      newPath = isCurrentEn ? pathname : `/en${pathname}`;
-    } else {
-      newPath = isCurrentEn ? pathname.replace(/^\/en/, '') || '/' : pathname;
-    }
-
     startTransition(() => {
-      router.push(newPath);
+      router.replace(pathname, { locale: newLocale });
     });
   };
 
